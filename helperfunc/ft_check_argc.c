@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:30:42 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/11 20:42:49 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:13:53 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ static int	ft_check_helper(char **args, int i)
 {
 	if (args[i][0] == '\0')
 		return (-1);
-	if (check_maximamu(args, i) == -1)
+	else if (check_maximamu(args, i) == -1)
 		return (-2);
-	if (ft_isnum(args, i) == -1)
+	else if (ft_isnum(args, i) == -1)
 		return (-3);
-	if (ft_check_duplication(args, i) == -1)
+	else if (ft_check_duplication(args, i) == -1)
 		return (-4);
 	return (0);
 }
@@ -71,7 +71,11 @@ int	ft_check_argc(int argc, char **argv)
 
 	i = 0;
 	if (argc == 2)
+	{
+		if (argv[1][0] == '\0')
+			return (-1);
 		args = ft_split(argv[1], ' ');
+	}
 	else
 	{
 		i = 1;
@@ -82,5 +86,5 @@ int	ft_check_argc(int argc, char **argv)
 		free_split(args);
 	if (flag < 0)
 		return (flag);
-	return (0);
+	return (flag);
 }

@@ -6,7 +6,7 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:17:25 by sagemura          #+#    #+#              #
-#    Updated: 2024/01/11 16:38:22 by sagemura         ###   ########.fr        #
+#    Updated: 2024/01/22 14:26:44 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,15 @@ ft_print_error.c is_sorted.c node.c node_2.c
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+
 LIBFTDIR = ./libft
 SORTFUNCDIR = ./sortfunc
+CFLAGS = -Wall -Wextra -Werror -I$(SORTFUNCDIR) -I$(LIBFTDIR)
 
 all: $(NAME)
 
 $(NAME): makelibft makesortfunc $(OBJS)
-	$(AR) rcs $@ $(OBJS)
-	$(AR) rcs $@ $(LIBFTDIR)/$(LIBFTNAME)
-	$(AR) rcs $@ $(SORTFUNCDIR)/$(SORTFUNCNAME)
+		ar rcs $(NAME) $(OBJS)
 
 makelibft:
 	make -C $(LIBFTDIR)
@@ -37,7 +36,7 @@ makesortfunc:
 	make -C $(SORTFUNCDIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@	
 
 clean:
 	rm -f $(OBJS)

@@ -6,7 +6,7 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:17:25 by sagemura          #+#    #+#              #
-#    Updated: 2024/01/11 16:56:19 by sagemura         ###   ########.fr        #
+#    Updated: 2024/01/22 14:15:23 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,7 @@ all: $(NAME)
 
 makehelperfunc:
 	make -C $(HELPERFUNCDIR)
-	cp $(HELPERFUNCDIR)/$(HELPERFUNCNAME) .
-	mv $(HELPERFUNCNAME) $(NAME)
-
+	
 $(NAME):makehelperfunc $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(HELPERFUNCDIR)/$(HELPERFUNCNAME) $(LIBFT) $(SORTFUNCNAME)
 
