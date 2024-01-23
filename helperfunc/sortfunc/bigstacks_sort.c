@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:19:08 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/05 18:59:31 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/23 02:47:59 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ void	bigstacks_sort(t_list **stack_a, t_list **stack_b)
 		return (free(array));
 	sort_array(array, size);
 	set_flags(flag, array, size, stop_pos);
+	free(array);
 	set_stacksb(stack_a, stack_b, flag, stop_pos);
 	finish_bigstacks_sort(stack_a, stack_b, flag);
-	delete_memory(flag, array);
+	delete_memory(flag);
 }
