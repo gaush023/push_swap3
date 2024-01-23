@@ -6,89 +6,112 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 00:43:44 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/05 15:45:34 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:44:34 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	g_wc(const char *str, char c)
+int	get_word_count(char const *s, char c)
 {
 	size_t	count;
 
-	if (str == NULL)
+	if (s == NULL)
 		return (0);
 	count = 0;
-	while (*str)
+	while (*s)
 	{
-		if (*str != c)
+		if (*s != c)
 		{
 			count++;
-			while (*str && *str != c)
-				str++;
+			while (*s && *s != c)
+				s++;
 		}
 		else
-			str++;
+			s++;
 	}
 	return (count);
 }
 
-static char	*f_nw(char const *str, char c, char **word_end)
-{
-	while (*str == c)
-		str++;
-	*word_end = (char *)ft_strchr(str, c);
-	if (!*word_end)
-		*word_end = (char *)ft_strchr(str, '\0');
-	return ((char *)str);
-}
-
-static char	*copy_words(const char *s_words, size_t n)
-{
-	char	*tmp;
-	size_t	len;
-
-	len = ft_strlen(s_words);
-	if (n < len)
-		len = n;
-	tmp = (char *)malloc(sizeof(char) * (len + 1));
-	if (!tmp)
-		return (NULL);
-	tmp = ft_memcpy(tmp, s_words, len);
-	tmp[len] = '\0';
-	return (tmp);
-}
-
-static void	free_result_array(char **result, int count)
+void	free_result_array(char **result, int count)
 {
 	while (count--)
 		free(result[count]);
 	free(result);
 }
 
-char	**ft_split(char const *str, char c)
+char	*find_next_word(char const *s, char c, char **word_end)
 {
-	size_t	n;
-	char	**res;
+	while (*s == c)
+		s++;
+	*word_end = ft_strchr(s, c);
+	if (!*word_end)
+		*word_end = ft_strchr(s, '\0');
+	return ((char *)s);
+}
+
+char	*copy_words(const char *s1, size_t n)
+{
+	char	*s2;
+	size_t	len;
+
+	len = ft_strlen(s1);
+	if (n < len)
+		len = n;
+	s2 = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s2)
+		return (NULL);
+	s2 = ft_memcpy(s2, s1, len);
+	s2[len] = '\0';
+	return (s2);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		word_count;
+	char	**result;
+	int		i;
 	char	*word_start;
 	char	*word_end;
 
-	res = malloc(sizeof(char *) * (g_wc(str, c) + 1));
-	if (res == NULL)
+	word_count = get_word_count(s, c);
+	result = (malloc(sizeof(char *) * (word_count + 1)));
+	if (!result)
 		return (NULL);
-	n = 0;
-	while (n < g_wc(str, c))
+	i = 0;
+	while (i < word_count)
 	{
-		word_start = f_nw(str, c, &word_end);
-		res[n] = copy_words(word_start, word_end - word_start);
-		if (!res[n])
+		word_start = find_next_word(s, c, &word_end);
+		result[i] = copy_words(word_start, word_end - word_start);
+		if (!result[i])
 		{
-			free_result_array(res, n);
+			free_result_array(result, i);
 			return (NULL);
 		}
-		str = word_end;
-		n++;
+		s = word_end;
+		i++;
 	}
-	res[n] = NULL;
-	return (res);
+	result[i] = NULL;
+	return (result);
 }
+
+// int	main(int argc, char **argv)
+// {
+// 	int i;
+// 	char **args;
+
+// 	if(argc != 2)
+// 		return (-1);
+// 	i = 0;
+// 	args = ft_split(argv[1], ' ');
+// 	while (args[i] != NULL)
+// 	{
+// 		printf("%s\n", args[i]);
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while (args[i] != NULL)
+// 		i++;
+// 	printf("array of size: %d\n", i);
+// 	return (0);
+// }

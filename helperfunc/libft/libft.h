@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:38:37 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/11 20:39:29 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:40:43 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 size_t		ft_strlen(const char *s);
 long		ft_atoi(const char *str);
 int			ft_isnum(char **str, int i);
-const char	*ft_strchr(const char *str, int c);
+char	*ft_strchr(const char *str, int c);
 void		*ft_memcpy(void *restrict dest, const void *restrict src, size_t n);
 char		**ft_split(char const *str, char c);
 int			ft_strcmp(const char *str1, const char *str2);
