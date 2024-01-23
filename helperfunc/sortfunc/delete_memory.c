@@ -6,21 +6,25 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:30:10 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/23 02:43:40 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:00:17 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sortfunc.h"
 
-void	delete_memory(int **flag)
+void	delete_memory(int ***flag)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < 11)
+	if (flag && *flag)
 	{
-		free(flag[i]);
-		i++;
+		while (i != 12)
+		{
+			free((*flag)[i]);
+			i++;
+		}
+		free(*flag);
+		*flag = NULL;
 	}
-	free(flag);
 }

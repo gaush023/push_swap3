@@ -6,7 +6,7 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:17:25 by sagemura          #+#    #+#              #
-#    Updated: 2024/01/22 14:15:23 by sagemura         ###   ########.fr        #
+#    Updated: 2024/01/23 20:58:14 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 HELPERFUNCNAME = helperfunc.a
 
 
-SRCS =   main.c
+SRCS =   main.c 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,6 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 HELPERFUNCDIR = ./helperfunc
 LIBFTDIR = ./helperfunc/libft
 SORTFUNCDIR = ./helperfunc/sortfunc
+SLDIR = ./seach_memory_leaks
 
 LIBFT = $(LIBFTDIR)/libft.a
 SORTFUNCNAME = $(SORTFUNCDIR)/sortfunc.a

@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   allocate_memory.c                                  :+:      :+:    :+:   */
+/*   allocate_flag_memory.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:30:10 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/05 18:41:46 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/23 20:40:03 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sortfunc.h"
-
-int	allocate_array_memory(int **array, int size)
-{
-	*array = (int *)malloc(sizeof(int) * size);
-	if (!*array)
-		return (-1);
-	return (0);
-}
 
 int	allocate_flag_memory(int ***flag)
 {

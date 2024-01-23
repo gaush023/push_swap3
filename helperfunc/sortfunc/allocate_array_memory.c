@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   allocate_array_memory.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/12 12:38:03 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/23 20:58:09 by sagemura         ###   ########.fr       */
+/*   Created: 2024/01/05 17:30:10 by sagemura          #+#    #+#             */
+/*   Updated: 2024/01/23 20:26:04 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "sortfunc.h"
 
-# include "helperfunc/helperfunc.h"
-# include "helperfunc/libft/libft.h"
-# include "helperfunc/sortfunc/sortfunc.h"
-# include "list.h"
-# include <limits.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-
-#endif
+int	allocate_array_memory(int **array, int size)
+{
+	*array = (int *)malloc(sizeof(int) * size);
+	if (!*array)
+		return (-1);
+	return (0);
+}
