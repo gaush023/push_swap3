@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 00:30:42 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/23 14:50:34 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:32:34 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_check_argc(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (argv[1][0] == '\0')
-			return (-1);
+			return (0);
 		args = ft_split(argv[1], ' ');
 	}
 	else

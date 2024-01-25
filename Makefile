@@ -6,20 +6,19 @@
 #    By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 00:17:25 by sagemura          #+#    #+#              #
-#    Updated: 2024/01/23 20:58:14 by sagemura         ###   ########.fr        #
+#    Updated: 2024/01/25 15:06:29 by sagemura         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 HELPERFUNCNAME = helperfunc.a
 
-
-SRCS =   main.c 
+SRCS =   main.c
 
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 HELPERFUNCDIR = ./helperfunc
 LIBFTDIR = ./helperfunc/libft
 SORTFUNCDIR = ./helperfunc/sortfunc
@@ -34,7 +33,7 @@ makehelperfunc:
 	make -C $(HELPERFUNCDIR)
 	
 $(NAME):makehelperfunc $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(HELPERFUNCDIR)/$(HELPERFUNCNAME) $(LIBFT) $(SORTFUNCNAME)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(HELPERFUNCDIR)/$(HELPERFUNCNAME) $(LIBFT) $(SORTFUNCNAME) 
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

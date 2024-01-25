@@ -6,16 +6,11 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 02:36:23 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/23 20:58:38 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/25 15:40:20 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-__attribute__((destructor)) static void destructor()
-{
-	system("leaks -q push_swap");
-}
 
 static int	malloc_stacks(t_list ***stack_a, t_list ***stack_b)
 {

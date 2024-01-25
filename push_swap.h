@@ -6,7 +6,7 @@
 /*   By: sagemura <sagemura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 12:38:03 by sagemura          #+#    #+#             */
-/*   Updated: 2024/01/23 20:58:09 by sagemura         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:34:12 by sagemura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
 
 #endif
